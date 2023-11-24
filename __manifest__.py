@@ -9,7 +9,7 @@
     'depends': ['base', 'crm'],
     'data': [
         'security/ir.model.access.csv',
-        'views/crm_checklist.xml',
+        'views/crm_checklist_templ.xml',
         'views/crm_lead.xml',
     ],
 }

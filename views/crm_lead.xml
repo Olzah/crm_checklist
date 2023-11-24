@@ -7,18 +7,30 @@
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
-
                     <page string="CRM Checklist" name="Checklist">
-                        <field name="progress" string="progress" widget="percentpie"/>
-                        <field name="tasks_list_ids" string="Tasks list">
-                            <tree editable="bottom" sample="1" multi_edit="1" create="true" delete="true">
-                                <field name="task_list_id" invisible="1"/>
-                                <field name="name" />
-                                <field name="description" />
-                                <field name="state" />
-                                <field name="is_done" />
-                            </tree>
-                        </field>
+                        <group>
+                            <group>
+                                <field name="progress" string="progress" widget="percentpie"/>
+                            </group>
+                            <group>
+                                <field name="temp_id" string="Template Checklist" />
+                            </group>
+
+                            <field name="tasks_list_ids" string="Tasks list">
+                                <tree editable="bottom" sample="1" multi_edit="1" create="true" delete="true">
+                                    <field name="task_list_id" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="description" />
+                                    <field name="is_done" readonly="1"/>
+                                    <button name="doSomething" class="text-warning" type="object" string="done" icon="fa-check"/>
+                                    <button name="doSomething2" class="text-warning" type="object" string="cancel" icon="fa-times"/>
+                                </tree>
+                            </field>
+
+                        </group>
+
+
+
                     </page>
                 </xpath>
             </field>
