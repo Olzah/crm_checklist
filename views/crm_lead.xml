@@ -16,11 +16,12 @@
                                 <field name="temp_id" string="Template Checklist" />
                             </group>
 
-                            <field name="tasks_list_ids" string="Tasks list" >
+                            <field name="tasks_list_ids" string="Tasks list" widget="mrp_production_components_x2many">
                                 <tree editable="bottom" sample="1" multi_edit="1" create="true" delete="true" widget="badge" decoration-success="is_done == True" >
                                     <field name="task_list_id" invisible="1"/>
                                     <field name="name"/>
                                     <field name="description" />
+                                    <field name="template_patent_id" readonly="1"/>
                                     <field name="is_done" readonly="1" />
                                     <button name="setStatusTaskTrue" class="text-warning" type="object" string="done" icon="fa-check" decoration-muted="is_done == False"/>
                                     <button name="setStatusTaskFalse" class="text-warning" type="object" string="cancel" icon="fa-times" decoration-muted="is_done == True"/>

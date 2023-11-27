@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 crm_checklist.access_crm_checklist_template,access_crm_checklist_template,crm_checklist.model_crm_checklist_template,base.group_user,1,1,1,1
 crm_checklist.access_task_checklist_line,access_task_checklist_line,crm_checklist.model_task_checklist_line,base.group_user,1,1,1,1
+crm_checklist.access_checklist_template_line,access_checklist_template_line,crm_checklist.model_checklist_template_line,base.group_user,1,1,1,1

@@ -12,10 +12,10 @@ class ElemChecklist(models.Model):
         ('new', 'New'),
         ('done', 'Completed'),], 'State', default='new',
         store=True)
+    template_patent_id = fields.Many2one('crm.checklist.template')
 
     def setStatusTaskTrue(self):
         self.write({'is_done': True})
-
 
     def setStatusTaskFalse(self):
         self.write({'is_done': False})
