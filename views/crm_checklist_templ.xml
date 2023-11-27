@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_checklist_template_action" model="ir.actions.act_window">
+        <field name="name">CRM Checklist Templates</field>
+        <field name="res_model">crm.checklist.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+     <menuitem
+        id="menu_top_checklist_template"
+        name="Checklist"
+        parent="crm.crm_menu_config"
+        sequence="10"/>
+     <menuitem
+        id="menu_checklist_template"
+        name="Checklist Templates"
+        parent="menu_top_checklist_template"
+        action="crm_checklist_template_action"
+        sequence="1"/>
+</odoo>

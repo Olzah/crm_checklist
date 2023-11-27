@@ -12,3 +12,10 @@ class ElemChecklist(models.Model):
         ('new', 'New'),
         ('done', 'Completed'),], 'State', default='new',
         store=True)
+
+    def setStatusTaskTrue(self):
+        self.write({'is_done': True})
+
+
+    def setStatusTaskFalse(self):
+        self.write({'is_done': False})
