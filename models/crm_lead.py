@@ -24,12 +24,14 @@ class Lead(models.Model):
         # template_elem = self.tasks_list_ids.filtered(lambda l: l.template_patent_id.id != False)
         # for el in template_elem:
         #     el.unlink()
+        list_uses_templ_id = set([x.id for x in self.tasks_list_ids.template_patent_id])
 
         for temp_el in self.temp_id.template_ids:
-            self.tasks_list_ids |= self.tasks_list_ids.new(
-                dict(name=temp_el.name,
-                     description=temp_el.description,
-                     is_done=False,
-                     task_list_id=self._origin.id,
-                     template_patent_id=self.temp_id.id)
-            )
+            if self.temp_id.id not in list_uses_templ_id:
+                self.tasks_list_ids |= self.tasks_list_ids.new(
+                    dict(name=temp_el.name,
+                         description=temp_el.description,
+                         is_done=False,
+                         task_list_id=self._origin.id,
+                         template_patent_id=self.temp_id.id)
+                )
