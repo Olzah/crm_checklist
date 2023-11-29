@@ -10,12 +10,11 @@
                     <page string="CRM Checklist" name="Checklist">
                         <group>
                             <group>
-                                <field name="progress" string="progress" widget="percentpie"/>
+                                <field name="progress" string="progress" widget="percentpie" attrs="{'invisible' :[('tasks_list_ids', '=', [])]}"/>
                             </group>
                             <group>
                                 <field name="temp_id" string="Template Checklist" />
                             </group>
-
                             <field name="tasks_list_ids" string="Tasks CRM List" >
                                 <tree editable="bottom" sample="1" multi_edit="1" create="true" delete="true" widget="badge" decoration-success="is_done == True" >
                                     <field name="task_list_id" invisible="1"/>
@@ -27,11 +26,7 @@
                                     <button name="setStatusTaskFalse" class="text-warning" type="object" string="cancel" icon="fa-times" decoration-muted="is_done == True"/>
                                 </tree>
                             </field>
-
                         </group>
-
-
-
                     </page>
                 </xpath>
             </field>

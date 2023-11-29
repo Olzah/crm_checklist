@@ -26,13 +26,6 @@ class Lead(models.Model):
 
         for temp_el in self.temp_id.template_ids:
             if self.temp_id.id not in list_uses_templ_id:
-                # self.tasks_list_ids |= self.tasks_list_ids.new(
-                #     dict(name=temp_el.name,
-                #          description=temp_el.description,
-                #          is_done=False,
-                #          task_list_id=self._origin.id,
-                #          template_parent_id=self.temp_id.id)
-                # )
                 self.tasks_list_ids = [((0, 0, {'name':temp_el.name,
                                                  'description': temp_el.description,
                                                 'is_done': False,
