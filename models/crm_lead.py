@@ -12,12 +12,13 @@ class Lead(models.Model):
 
     @api.depends("tasks_list_ids.is_done")
     def _compute_progress(self):
-        all_task_list = len(self.tasks_list_ids)
-        if all_task_list > 0:
-            done_state = len(self.tasks_list_ids.filtered(lambda l: l.is_done == True))
-            self.progress += done_state/all_task_list*100
-        else:
-            self.progress = 0
+        for elem in self:
+            all_task_list = len(elem.tasks_list_ids)
+            if all_task_list > 0:
+                done_state = len(elem.tasks_list_ids.filtered(lambda l: l.is_done == True))
+                elem.progress += done_state/all_task_list*100
+            else:
+                elem.progress = 0
 
     @api.onchange('temp_id')
     def _onchange_template(self):
